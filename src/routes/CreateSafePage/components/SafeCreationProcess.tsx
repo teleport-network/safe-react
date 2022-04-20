@@ -115,6 +115,7 @@ function SafeCreationProcess(): ReactElement {
         const gasMaxPrioFee = safeCreationFormValues[FIELD_NEW_SAFE_GAS_MAX_PRIO_FEE]
         const deploymentTx = getSafeDeploymentTransaction(ownerAddresses, confirmations, safeCreationSalt)
 
+        // change
         const sendParams = createSendParams(userAddressAccount, {
           ethGasLimit: gasLimit.toString(),
           ethGasPriceInGWei: gasPrice,

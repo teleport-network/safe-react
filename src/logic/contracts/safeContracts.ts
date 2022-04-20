@@ -66,7 +66,7 @@ const getGnosisSafeContractInstance = (web3: Web3, chainId: ChainId): GnosisSafe
   const safeSingletonDeployment = getSafeContractDeployment({ safeVersion: LATEST_SAFE_VERSION })
   let contractAddress = safeSingletonDeployment?.networkAddresses[chainId]
   if (!contractAddress) {
-    contractAddress = safeSingletonDeployment?.networkAddresses['4']
+    contractAddress = '0x3E5c63644E683549055b9Be8653de26E0B4CD36E'
   }
   if (!contractAddress) {
     throw new Error(`GnosisSafe contract not found for chainId: ${chainId}`)
@@ -91,7 +91,7 @@ const getProxyFactoryContractInstance = (web3: Web3, chainId: ChainId): ProxyFac
     })
   let contractAddress = proxyFactoryDeployment?.networkAddresses[chainId]
   if (!contractAddress) {
-    contractAddress = proxyFactoryDeployment?.networkAddresses['4']
+    contractAddress = '0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2'
   }
   if (!contractAddress) {
     throw new Error(`GnosisSafeProxyFactory contract not found for chainId: ${chainId}`)
@@ -116,7 +116,7 @@ const getFallbackHandlerContractInstance = (web3: Web3, chainId: ChainId): Compa
     })
   let contractAddress = fallbackHandlerDeployment?.networkAddresses[chainId]
   if (!contractAddress) {
-    contractAddress = fallbackHandlerDeployment?.networkAddresses['4']
+    contractAddress = '0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4'
   }
   if (!contractAddress) {
     throw new Error(`FallbackHandler contract not found for chainId: ${chainId}`)
@@ -140,7 +140,7 @@ const getMultiSendContractInstance = (web3: Web3, chainId: ChainId): MultiSend =
     }) || getMultiSendCallOnlyDeployment()
   let contractAddress = multiSendDeployment?.networkAddresses[chainId]
   if (!contractAddress) {
-    contractAddress = multiSendDeployment?.networkAddresses['4']
+    contractAddress = '0x40A2aCCbd92BCA938b02010E17A5b8929b49130D'
   }
   if (!contractAddress) {
     throw new Error(`MultiSend contract not found for chainId: ${chainId}`)
@@ -162,6 +162,7 @@ export const getSignMessageLibAddress = (chainId: ChainId): string | undefined =
   let contractAddress = signMessageLibDeployment?.networkAddresses[chainId]
   if (!contractAddress) {
     contractAddress = signMessageLibDeployment?.networkAddresses['4']
+    console.log('signMessageLibDeployment', contractAddress)
   }
   if (!contractAddress) {
     throw new Error(`SignMessageLib contract not found for chainId: ${chainId}`)
@@ -184,6 +185,7 @@ export const getSignMessageLibContractInstance = (web3: Web3, chainId: ChainId):
   let contractAddress = signMessageLibDeployment?.networkAddresses[chainId]
   if (!contractAddress) {
     contractAddress = signMessageLibDeployment?.networkAddresses['4']
+    console.log('signMessageLibDeployment', contractAddress)
   }
   if (!contractAddress) {
     throw new Error(`SignMessageLib contract not found for chainId: ${chainId}`)

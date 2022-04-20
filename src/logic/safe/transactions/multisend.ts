@@ -25,7 +25,6 @@ export const encodeMultiSendCall = (txs: Transaction[]): string => {
       ].join(''),
     )
     .join('')
-
   const encodedMultiSendCallData = multiSend.methods.multiSend(`0x${joinedTxs}`).encodeABI()
 
   return encodedMultiSendCallData

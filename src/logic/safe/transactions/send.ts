@@ -48,7 +48,7 @@ export const getExecutionTransaction = ({
   valueInWei,
 }: TxArgs): NonPayableTransactionObject<boolean> => {
   try {
-    return safeInstance.methods.execTransaction(
+    const test = safeInstance.methods.execTransaction(
       to,
       valueInWei,
       data,
@@ -60,6 +60,7 @@ export const getExecutionTransaction = ({
       refundReceiver,
       sigs,
     )
+    return test
   } catch (err) {
     console.error(`Error while creating transaction: ${err}`)
 

@@ -143,7 +143,6 @@ export class TxSender {
       notifications.showOnRejection(err)
       return
     }
-
     const executeData = isFinalization
       ? safeInstance.methods
           .execTransaction(
@@ -198,7 +197,6 @@ export class TxSender {
       .send(sendParams)
       .once('transactionHash', (hash) => {
         this.txHash = hash
-
         if (isFinalization) {
           aboutToExecuteTx.setNonce(txArgs.nonce)
         }
@@ -220,7 +218,6 @@ export class TxSender {
     errorCallback?: ErrorEventHandler,
   ): Promise<string | undefined> {
     const isOffchain = await this.canSignOffchain(state)
-
     // Off-chain signature
     if (!this.isFinalization && isOffchain) {
       try {
@@ -335,7 +332,6 @@ export const createTransaction = (
 
     // SafeTxHash acts as the unique ID of a tx throughout the app
     sender.safeTxHash = generateSafeTxHash(txProps.safeAddress, sender.safeVersion, sender.txArgs)
-
     // Start the creation
     sender.submitTx(state, confirmCallback, errorCallback)
   }

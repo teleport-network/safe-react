@@ -143,7 +143,6 @@ type DeleteAllowanceParams = {
 
 export const getDeleteAllowanceTxData = ({ beneficiary, tokenAddress }: DeleteAllowanceParams): string => {
   const spendingLimitContract = getSpendingLimitContract()
-
   return spendingLimitContract.methods.deleteAllowance(beneficiary, tokenAddress).encodeABI()
 }
 
@@ -168,7 +167,6 @@ export const enableSpendingLimitModuleMultiSendTx = async (
 
 export const addSpendingLimitBeneficiaryMultiSendTx = (beneficiary: string): MultiSendTx => {
   const spendingLimitContract = getSpendingLimitContract()
-
   return {
     to: SPENDING_LIMIT_MODULE_ADDRESS,
     value: '0',
@@ -178,7 +176,6 @@ export const addSpendingLimitBeneficiaryMultiSendTx = (beneficiary: string): Mul
 
 export const getResetSpendingLimitTx = (beneficiary: string, token: string): MultiSendTx => {
   const spendingLimitContract = getSpendingLimitContract()
-
   return {
     to: SPENDING_LIMIT_MODULE_ADDRESS,
     value: '0',

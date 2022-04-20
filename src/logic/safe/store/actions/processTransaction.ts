@@ -74,7 +74,6 @@ export const processTransaction = (props: ProcessTransactionArgs): ProcessTransa
     }
 
     sender.isFinalization = approveAndExecute && !!(props.thresholdReached || props.preApprovingOwner)
-
     sender.txArgs = {
       ...tx, // Merge previous tx with new data
       safeInstance: sender.safeInstance,
@@ -89,7 +88,6 @@ export const processTransaction = (props: ProcessTransactionArgs): ProcessTransa
     }
 
     sender.safeTxHash = tx.safeTxHash
-
     sender.submitTx(state)
   }
 }

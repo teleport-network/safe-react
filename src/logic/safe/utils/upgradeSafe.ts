@@ -14,7 +14,6 @@ const getFallbackHandlerTxData = (safeAddress: string): string => {
 
   const fallbackHandlerAddress = getFallbackHandlerContractAddress()
   const safeInstance = getGnosisSafeInstanceAt(safeAddress, LATEST_SAFE_VERSION)
-
   return hasSetFallbackHandler
     ? safeInstance.methods.setFallbackHandler(fallbackHandlerAddress).encodeABI()
     : EMPTY_DATA

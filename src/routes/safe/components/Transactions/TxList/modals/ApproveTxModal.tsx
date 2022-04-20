@@ -211,7 +211,6 @@ export const ApproveTxModal = ({ onClose, isOpen, transaction }: Props): React.R
   if (!thresholdReached && isOwner && confirmationsSubmitted === confirmationsRequired - 1) {
     preApprovingOwner = userAddress
   }
-
   const approveTx = (txParameters: TxParameters, delayExecution: boolean) => {
     dispatch(
       processTransaction({
